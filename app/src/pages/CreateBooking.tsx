@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { axios } from "../common";
 import moment from "moment-timezone"
+import React from "react";
 
 export default function CreateBooking() {
   const [locations, setLocations] = useState([]);
