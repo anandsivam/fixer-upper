@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import connect from './db'
 import { v4 as uuid } from 'uuid'
+import axios from 'axios'
+import { BookingLocations } from './BookingLocations'
 
 const app = express()
 
@@ -10,6 +12,11 @@ app.use(express.urlencoded({ extended: true}));
 app.use(cors())
 
 const api = express.Router()
+
+api.get('/getBookingLocations', (req, res) => {
+  
+  res.json(Object.values(BookingLocations));
+});
 
 api.get('/getBookings', async (res, req) => {
   const db = await connect()
