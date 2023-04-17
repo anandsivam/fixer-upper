@@ -6,6 +6,8 @@ CREATE TABLE "bookings" (
   "bookingDate" TIMESTAMP NOT NULL,
   "location" VARCHAR(255) NOT NULL,
   "username" VARCHAR(15) NOT NULL,
-  CHECK (location ~* '^[a-z]+$'::text),
-  CHECK (username ~* '^[\w@]+$'::text)
+  CHECK (location ~* '^[a-zA-Z0-9\_\,\-\s]{1,50}$'),
+  CHECK (username ~* '^[a-zA-Z0-9\@\_]{1,50}$')
 );
+
+

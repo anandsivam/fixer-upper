@@ -14,7 +14,7 @@ export default function BookingsList() {
   const [filterByLocation, setFilterByLocation] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const itemsPerPage = 10;
+  const itemsPerPage = 100;
 
   useEffect(() => {
     let isMounted = true;
@@ -80,6 +80,8 @@ export default function BookingsList() {
     setCurrentPage(pageNumber);
   }
 
+  const totalPages = Math.ceil(filterBookings().length / itemsPerPage);
+
   function getPaginationGroup() {
     const start = Math.floor((currentPage - 1) / 5) * 5;
     return new Array(5)
@@ -93,8 +95,6 @@ export default function BookingsList() {
     const endIndex = startIndex + itemsPerPage;
     return filterBookings().slice(startIndex, endIndex);
   }
-
-  const totalPages = Math.ceil(filterBookings().length / itemsPerPage);
 
   return (
     <>
