@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import axios from 'axios'
 import { BookingLocations } from './BookingLocations'
 
-const app = express()
+export const app = express()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
